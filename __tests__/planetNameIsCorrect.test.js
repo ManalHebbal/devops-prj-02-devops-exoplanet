@@ -5,13 +5,17 @@ test('test if the name is in uppercase', () => {
 });
 
 test('test if the name is in uppercase', () => {
-    expect(planetNameIsCorrect('SATURNE')).toBe(true);
+    expect(planetNameIsCorrect('SATURNE-.')).toBe(true);
 });
 
 test('test if the name contains only _ or . as special characters', () => {
-    expect(planetNameIsCorrect('SATURNE_0214')).toBe(true);
+    expect(planetNameIsCorrect('NEW-SATURNE')).toBe(true);
 });
 
 test('test if the name contains only _ or . as special characters', () => {
     expect(planetNameIsCorrect('SATURNE!1402')).toBe(false);
+});
+
+test('test if the name contains only _ or . as special characters and is in uppercase', () => {
+    expect(planetNameIsCorrect('Trappiste$****01****-00')).toBe(false);
 });
