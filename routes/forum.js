@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
 
 /* POST add forum. */
 router.post('/add', (req, res, next) => {
-    console.log("POST ADD FORUM");
+    console.log('POST ADD FORUM');
     Message.save({ message: req.body.message, author: req.body.author });
     res.redirect('/forum');
 });

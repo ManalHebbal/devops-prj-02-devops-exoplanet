@@ -4,10 +4,9 @@ const path = require('path');
 const logger = require('morgan');
 
 // Define here controllers/routers files
-const indexRouter = require("./routes/index.js");
-const exoplanetsRouter = require("./routes/exoplanets.js");
+const indexRouter = require('./routes/index.js');
+const exoplanetsRouter = require('./routes/exoplanets.js');
 const forumRouter = require('./routes/forum.js');
-
 
 const app = express();
 // Azure or others Cloud service are going to define a port in process.env.PORT depending on hosting
@@ -21,20 +20,18 @@ app.use(logger('dev')); // Log each request
 app.use(express.urlencoded({ extended: false })); // Decode form values
 app.use(express.static(path.join(__dirname, 'public'))); // Get static files from public folder
 
-
 // Define routes used by routers
-app.use("/", indexRouter);
-app.use("/exoplanets", exoplanetsRouter);
-app.use("/forum", forumRouter);
-
+app.use('/', indexRouter);
+app.use('/exoplanets', exoplanetsRouter);
+app.use('/forum', forumRouter);
 
 // Create error on page not found
 app.use((req, res, next) => next(createError(404)));
 
 // Show error hbs page
 app.use((error, req, res, next) => {
-  res.status(error.status || 500);
-  res.render('error', { error });
+    res.status(error.status || 500);
+    res.render('error', { error });
 });
 
 // Launch server
