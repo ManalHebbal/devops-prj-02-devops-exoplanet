@@ -7,3 +7,5 @@ test('test if the name is in uppercase', () => {
 test('test if the name is in uppercase', () => {
     expect(planetNameIsCorrect('SATURNE')).toBe(true);
 });
+
+
